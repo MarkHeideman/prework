@@ -37,6 +37,35 @@ echo "is an array? ".is_array($testing); // checks if is an array
 echo "<br/>";
 ?>
 
+<?php
+$undecided = 3.14;
+echo "is ".$undecided." a double? ".is_double($undecided). "<br/>"; // double
+settype($undecided, 'string');
+echo "is ".$undecided. " a string? ".is_string($undecided). "<br/>"; // string
+settype($undecided, 'integer');
+echo "is ".$undecided. " a integer? ".is_integer($undecided). "<br/>"; // integer
+settype($undecided, 'double');
+echo "is ".$undecided. " a double? ".is_double($undecided). "<br/>"; // double
+settype($undecided, 'bool');
+echo "is ".$undecided. " a boolean? ".is_bool($undecided). "<br/>"; // boolean
+?>
 
+
+<?php
+$undecided = 3.14;
+$holder = (double) $undecided;
+echo "is ".$holder." a double? ".is_double($holder)."br/>; // double
+$holder = (string) $undecided;
+echo "is ".$holder." a string? ".is_string(holder)."br/>; // string
+$holder = (integer) $undecided;
+echo "is ".$holder." a integer? ".is_integer($holder)."br/>; // integer
+$holder = (double) $undecided;
+echo "is ".$holder." a double? ".is_double($holder)."br/>; // double
+$holder = (boolean) $undecided;
+echo "is ".$holder." a boolean? ".is_bool($holder)."br/>; // boolean
+echo "hr/>";
+echo "original variable type of $undecided: ";
+echo gettype($undecided); // double
+?>
 
 
