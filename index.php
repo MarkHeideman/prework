@@ -1,5 +1,4 @@
-
-<DOCTYPE html>
+<DOCTYPE html xmlns="http://www.w3.org/1999/html">
 <html>
 	<head>
 		<title>I Completed the Prework</title>
@@ -512,4 +511,402 @@ forech ($products as $key=>$val) {
 }
 echo "</pre>";
 ?>
+
+
+<?php
+$test = "http://www.google.com/search?";
+$test .= "hl=en&ie=UTF -8&q=php+development+books&btnG=Google+Search";
+$delims = "?&";
+Sword = strtok($test, $delims);
+while (is_string($word))) {
+	if ($word) {
+		echo $word."<br/>";
+	}
+		$word = strtok($delims);
+}
+?>
+
+<?php
+$date_array = getdate(); // no argument passed so today's date will be used foreach ($date_array as $key => $val) {
+	echo "$key = $val<br>";
+}
+<hr/>
+<?$php_
+echo "<p>Today's date: ".$date_array['mon']."/".$date_array['mday']."/".
+		$date_array['year']."<p>";
+?>
+
+<?php
+$time = time(); //stores the exact timestamp to use in this script
+echo date("m/d/y G:i:s e", $time);
+echo "<br/>";
+echo "Today is ";
+echo date("js \of F Y, \a\\t g:ia \i\\n e", $time);
+?>
+
+
+<?php
+// make a time stamp for Jan 17 2012 at 9:34 pl
+$ts = mktime(21, 34, 0, 1, 17, 2012);
+echo date("m/d/y G:i:s: e" , $ts);
+echo "<br/>";
+echo "The date is ";
+echo date("js \of F Y, \a\\t g:ia \i\\n e", $ts);
+?>
+
+
+<!DOCTYPE html>
+<html>
+</head>
+<title>A simple HTML form</title>
+</head>
+<body>
+<form method="post" action="send_simpleform.php">
+<p><label for="text" id="user">Name:</label><br/>
+	<input type="text" id="user" name="user"></p>
+<p><label for="message">Message:</label><br/>
+	<textarea id="message" name="message" rows="5" cols="40"></textarea></p>
+	<button type="submit" name="submit" value="send">Send message</button>
+	</form>
+	</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A simple response</title>
+	</head>
+	<body>
+<p>Welcome, <strong><?php echo $_POST['user']; ?></strong>!,</p>
+		<p>Your message is:
+		<strong><?php echo $_POST['message']; ?></strong></p>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>An HTML form with checkboxes</title>
+</head>
+<body>
+	<form action="send_formwithcb.php" method="POST">
+	<p><label>Name:</label><br/>
+		<input type="text" name="user" /></p>
+		<fieldset>
+			<legend>Select Some Products:</legend><br/>
+			<input type="checkbox" id="Tricorder"
+					 name="products[]" value="Tricorder">
+	<label for="tricorder">Tricorder</label><br/>
+
+
+	<input type="checkbox" id="ORAC_AI"
+			 name="products[]" value="ORAC_AI">
+			<label for="ORAC_AI">ORAC AI</label><br/>
+
+
+			<input type="checkbox" id="HAL_2000"
+					 name="products[]" value="HAL_2000">
+			<label for="HAL_2000">HAL 2000</label><br/>
+			</fieldset>
+		<button type="submit" name="submit" value="submit">Submit Form</button>
+	</form>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reading checkboxes</title>
+	</head>
+	<body>
+		<p>Welcome, <strong><?php echo $_POST['user']; ?></strong>!,/p>
+		<p>Your product choices are:
+			<?php
+			if (!empty($_POST['products'])) {
+				echo "ul";
+				foreach ($_POST['products'] as $value) {
+					echo "<li>$value</li>li>";
+				}
+			}
+			echo "/ul";
+			} else {
+				echo "None";
+			}
+			?>
+		</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>An HTML form that calls itself</title>
+	</head>
+	<body>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+			<p><label for="guess">Type your guess here:</label> <br/>
+				<input type="text" id="guess" name="guess" /></p>
+			<button type="submit" name="submit" value="submit">Submit</button>
+		</form>
+	</body>
+</html>
+
+
+
+
+<?php
+$num_to_guess = 42
+	if (!isset($_POST['guess'])) {
+		$message = "Welcome to the guessing machine!";
+	} elseif (!is_numeric(($_POST['guess'])) { // is not numeric
+	$message = "I don't understand that response.";
+} elseif ($_POST['guess'] == $num_to_guess)) { // matches!
+$message = "Well done.";
+} elseif ($_POST['guess'] > $num_to_guess) {
+$message = "$_POST['guess']." is too big! Try a smaller number.";
+} elseif ($_POST['guess'] < $num_to_guess) {
+$message = $_POST['guess']." is too small! Try a larger number.";
+} else { // some other condition
+$message = "I am terribly confused.";
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A PHP number guessing script</title>
+	</head>
+	<body>
+		<h1><?php echo $message; ?></h1>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+			<p><label for="guess">Type your guess here:</label> <br/>
+				<input type="text" id="guess" name="guess" /></p>
+			<button type="submit" name="submit" value="submit">Submit</button>
+		</form>
+	</body>
+</html>
+
+
+
+
+<?php
+$num_to_guess = 42
+	$num_tries = (!isset($_POST['num_tries'])) ? $num_tries + 1 : 1;
+	if (!isset($_POST['guess'])) {
+		$message = "Welcome to the guessing machine!";
+	} elseif (!is_numeric(($_POST['guess'])) { // is not numeric
+	$message = "I don't understand that response.";
+} elseif ($_POST['guess'] == $num_to_guess)) { // matches!
+	$message = "Well done.";
+} elseif ($_POST['guess'] > $num_to_guess) {
+	$message = "$_POST['guess']." is too big! Try a smaller number.";
+} elseif ($_POST['guess'] < $num_to_guess) {
+$message = $_POST['guess']." is too small! Try a larger number.";
+} else { // some other condition
+	$message = "I am terribly confused.";
+}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A PHP number guessing script</title>
+	</head>
+	<body>
+		<h1><?php echo $message; ?></h1>
+		<p><strong>Guess number:</strong> <?php echo $num_tries; ?></p>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<p><label for="guess">Type your guess here:</label> <br/>
+	<input type="text" id="guess" name="guess" /></p>
+<input type="hidden" name="num_tries" value="<?php echo $num_tries; ?>" />
+<button type="submit" name="submit" value="submit">Submit</button>
+</form>
+</body>
+</html>
+
+
+
+
+HTTP/1.1 200 OK
+date: Sun, 29 Jan 2012 15:50 PST
+Server: Apache/2.2.21 (Win32) PHP/5.4.0
+X-Powered-By: PHP/5.4.0
+Connection: close
+Content - Type: text/html
+
+
+<?php
+$num_to_guess = 42
+	$num_tries = (!isset($_POST['num_tries'])) ? $num_tries + 1 : 1;
+	if (!isset($_POST['guess'])) {
+		$message = "Welcome to the guessing machine!";
+	} elseif (!is_numeric(($_POST['guess'])) { // is not numeric
+	$message = "I don't understand that response.";
+} elseif ($_POST['guess'] == $num_to_guess)) { // matches!
+			header(Location: conrats.html");
+			exit;
+		} elseif ($_POST['guess'] > $num_to_guess) {
+			$message = "$_POST['guess']." is too big! Try a smaller number.";
+} elseif ($_POST['guess'] < $num_to_guess) {
+$message = $_POST['guess']." is too small! Try a larger number.";
+} else { // some other condition
+	$message = "I am terribly confused.";
+}
+?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A PHP number guessing script</title>
+	</head>
+	<body>
+		<h1><?php echo $message; ?></h1>
+		<p><strong>Guess number:</strong> <?php echo $num_tries; ?></p>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+			<p><label for="guess">Type your guess here:</label> <br/>
+				<input type="text" id="guess" name="guess" /></p>
+			<input type="hidden" name="num_tries" value="<?php echo $num_tries; ?>" />
+			<button type="submit" name="submit" value="submit">Submit</button>
+		</form>
+	</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>E-Mail Form</title>
+	</head>
+	<body>
+		<form action="sendmail.php" method="POST">
+			<p><label for="name">Name:</label> <br/>
+				<input type="text" size="25" id="name" name="name" /></p>
+			<p><label for="email">E-Mail Address:</label> <br/>
+				<input type="text" size="25" id="email" name="email" /></p>
+			<p><label for="msg">Message:</label> <br/>
+			<textarea id="msg" name="msg" cols="30" rows="5"></textarea></p>
+			<button type="submit" name="submit" value="send">Send Message</button>
+		</form>
+	</body>
+</html>
+
+
+
+
+
+<?php
+//start building the mail string
+$msg = "Name:         ".$_POST['name']."\n";
+$msg = "E-Mail:       ".$_POST['email']."\n";
+$msg = "Message:      ".$_POST['messgae']."\n";
+
+//set up the mail
+$recipient = "you@yourdomain.com";
+$subject = "Form Submission Results";
+$mailheaders = "From My Web Site <defaultaddress@yourdomain.com> \n";
+$mailheaders .= "Reply - To: ".$_POST['email'];
+
+//send the mail
+mail ($recipient, $subject, $msg, $mailheaders);
+		?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sending mail from the form in Listing 11.10</title>
+	</head>
+	<body>
+<p> Thanks, <strong><?php echo $_POST['name']; ?></strong>,
+	for your message.</p>
+		<p> Your e-mail address:
+			<strong><?php echo $_POST['email']; ?><strong></p>
+		</body>
+	</html>
+
+
+
+
+<?php
+//start building the mail string
+$msg = "<p><strong>Name:</strong>          ".$_POST['name']."</p>";
+$msg .= "<p><strong>E-Mail:<strong>        ".$_POST['email']."<p/>";
+$msg .= "<p><strong>Message:<strong>       ".$_POST['messgae']."</p>";
+
+//set up the mail
+$recipient = "you@yourdomain.com";
+$subject = "Form Submission Results";
+$mailheaders = "MIME-Version: 1.0\r\n\";
+$mailheaders .= "Content-type: text/html; charset=ISO-8859-1\r\n";
+$mailheaders = "From My Web Site <defaultaddress@yourdomain.com> \n";
+$mailheaders .= "Reply-To: ".$_POST['email'];
+
+//send the mail
+mail ($recipient, $subject, $msg, $mailheaders);
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sending the Simple Feedback Form - HTML Version</title>
+	</head>
+	<body>
+		<p> Thanks, <strong><?php echo $_POST['name']; ?></strong>,
+			for your message.</p>
+		<p> Your e-mail address:
+			<strong><?php echo $_POST['email']; ?><strong></p>
+ <p>Your message: <br/> <?php echo $_POST['$message']; ?> </p>
+	</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A simple file upload form</title>
+	</head>
+	<body>
+	<form action="do_upload.php" enctype="multipart/form-data" method="POST">
+<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+	<p><label for ="fileupload">File to Upload:</label>
+<input type="file" id="fileupload"  name="fileupload" /></p>
+<button type="submit" name="submit" value="send">Upload File</button>
+</form>
+ </body>
+</html>
+
+
+
+<?php
+$file_dir = "/path/to/upload/directory";
+
+foreach($_FILES as $file_name => $file_array) {
+	echo "path: ".$file_array['tmp_name']."<br/>\n";
+	echo "path: ".$file_array['name']."<br/>\n";
+	echo "path: ".$file_array['type']."<br/>\n";
+	echo "path: ".$file_array['size']."<br/>\n";
+
+	if (is_uploaded_file($file_array['tmp_name'])) {
+		move_uploaded_file(file_array['tmp_name'],
+			"$file_dir/".$file_array['name'])
+			or die ("Couldn't move file");
+			} else {
+				echo "No file found.";
+				}
+}
+?>
+
+
+
 
