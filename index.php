@@ -389,4 +389,127 @@ create_function('$txt', 'return "&quot;$txt&quot;";'));
 
 
 
+<$php
+class myClass {
+		//code will go here
+}
+$object1 = new myClass();
+echo "\$object1 is an ".gettype($object1).".<br/>";
+
+if (is_object($object1)) {
+		echo "Really! I swear \$object1 is an object!";
+}
+?>
+
+
+<?php
+class myCar {
+	public $color = "silver";
+	public $color = "MAZDA";
+	public $color = "Protege5";
+}
+$car = new myCar();
+echo "I drive a: ".$car -> color." ".$car -> make." ".$car -> model;
+?>
+
+<?php
+class myCar {
+	public $color = "silver";
+	public $color = "Mazda";
+	public $color = "Protege5";
+}
+$car = new myCar();
+$car -> color = "red";
+$car -> make = "Porsche";
+$car -> model  = "Boxter";
+echo "I drive a: ".$car -> color." ".$car -> make." ".$car -> model;
+?>
+
+
+
+<?php
+class myClass {
+	public$name = "Jimbo";
+	function sayHello() {
+		echo "Hello! My name is ".$this->name;
+	}
+}
+$object1 = new myClass();
+$object1 -> sayHello();
+?>
+
+
+<?php
+class myClass {
+	public$name = "Jimbo";
+	function setName($n) {
+		$this->name = $n;
+	}
+	function sayHello() {
+		echo "Hello! My name is ".$this->name;
+	}
+}
+$object1 = new myClass();
+$object1 -> setName("Julie");
+$object1 -> sayHello();
+?>
+
+<?php
+class myClass {
+	public$name = "Matt";
+	function setName($n) {
+		$this->name = $n;
+	}
+	function sayHello() {
+		echo "Hello! My name is ".$this->name;
+	}
+}
+class childClass extends myClass {
+	//code goes here
+}
+$object1 = new new childClass ("Baby Matt");
+$object1 -> sayHello();
+?>
+
+<?php
+class myClass {
+	public$name = "Matt";
+	function setName($n) {
+		$this->name = $n;
+	}
+	function sayHello() {
+		echo "Hello! My name is ".$this->name;
+	}
+}
+class childClass extends myClass {
+	function sayHello() {
+		echo "I will not tell you my name.";
+	}
+}
+$object1 = new new childClass ("Baby Matt");
+$object1 -> sayHello();
+?>
+
+<?php
+$number = 543;
+printf("Decimal: %d<br/>"", $number);
+printf("Binary: %d<br/>"", $number);
+printf("Double: %d<br/>"", $number);
+printf("Octal: %d<br/>"", $number);
+printf("String: %d<br/>"", $number);
+printf("Hex (lower): %d<br/>"", $number);
+printf("Hex (upper): %d<br/>"", $number);
+?>
+
+<?php
+$products = array("Green armchair" => "222.4",
+						"Candlestick"=> "4",
+						"Coffe table"=> "80.6");
+echo "<pre>";
+printf("%-20s%20s/n", "Name", "Price");
+forech ($products as $key=>$val) {
+	printf( "%-20s%20.2f\n", $key, $val );
+}
+echo "</pre>";
+?>
 
